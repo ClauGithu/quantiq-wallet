@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/quantiq-wallet/">
+<!-- BASE:END -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Fraunces:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+
+
+
+<!-- SEO Meta Tags -->
+<title>Quantiq Wallet</title>
+<meta property="og:title" content="Quantiq Wallet" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Quantiq Wallet" />
+<link rel="icon" href="favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
+<!-- End SEO Meta Tags -->
+<script data-lp-token-hydrate>
+(function(){try{
+  var slug="lp-mu67mqzn-dbcur-copy-1791829291772";
+  var SITEK="";
+  var SK='lp_access_'+slug;
+  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
+  var u=new URL(location.href);var found=null;var changed=false;
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
+  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
+  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
+  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
+  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
+}catch(e){}})();
+</script>
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://app.quantiqai.io/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=7988');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='fjTA57w';
+  var apiBase='https://app.quantiqai.io';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    var phone=findPhone();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var sidP=urlParams.get('session_id');
+      if(sidP){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidP})}).catch(function(){});}catch(e){}}
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
+<script data-cart>
+(function(){
+  var slug='fjTA57w';
+  var apiBase='https://app.quantiqai.io';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="orb-field" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+<header class="site">
+  <div class="nav">
+    <div class="brand">
+      <img class="logo-mark" src="https://app.quantiqai.io/objects/quick-uploads/258/deac7d77bf84e840.png" alt="Quantiq Wallet" width="36" height="36">
+      <span>Quantiq Wallet<small>by Quantiq AI</small></span>
+    </div>
+    <nav class="nav-links" id="navLinks"></nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="btnEn" aria-pressed="true">EN</button>
+        <button type="button" id="btnEs" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn btn-primary btn-sm" href="#" id="navCta" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="badge-pill">
+        <span class="eyebrow"><span class="dot"></span><span id="heroEyebrow"></span></span>
+      </div>
+      <h1 id="heroTitle"></h1>
+      <p class="lede" id="heroLede"></p>
+      <div class="chip-row" id="chipRow"></div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#" id="heroCtaPrimary" target="_blank" rel="noopener"></a>
+        <span class="cta-note" id="ctaNote"></span>
+      </div>
+      <a class="link-arrow" href="#tipos" id="heroCtaGhost"></a>
+
+      <div class="preview-card">
+        <div class="preview-head">
+          <div class="who">
+            <img class="avatar-mark" src="https://app.quantiqai.io/objects/quick-uploads/258/deac7d77bf84e840.png" alt="">
+            <div><b id="prevName"></b><span class="online"><span class="dot"></span><span id="prevOnline"></span></span></div>
+          </div>
+          <time id="prevTime">3:07 AM</time>
+        </div>
+        <div class="preview-body">
+          <img class="pass-shot" src="https://app.quantiqai.io/objects/quick-uploads/258/d0da62bcc8442139.jpg" alt="Quantiq Wallet pass example">
+        </div>
+        <div class="preview-foot" id="previewFoot"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="stat-grid" id="statGrid"></div>
+    </div>
+  </section>
+
+  <section id="tipos">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" id="typesEyebrow"></p>
+        <h2 id="typesTitle"></h2>
+        <p id="typesLede"></p>
+      </div>
+    </div>
+    <div class="carousel" id="typeCarousel"></div>
+  </section>
+
+  <section id="agente">
+    <div class="wrap">
+      <div class="agent-copy">
+        <p class="eyebrow" id="agentEyebrow"></p>
+        <h2 id="agentTitle"></h2>
+        <p id="agentLede"></p>
+      </div>
+      <div class="preview-card agent-panel">
+        <div class="preview-head">
+          <div class="who">
+            <img class="avatar-mark" src="https://app.quantiqai.io/objects/quick-uploads/258/deac7d77bf84e840.png" alt="">
+            <div><b id="agentPrevName"></b><span class="online"><span class="dot"></span><span id="agentOnline"></span></span></div>
+          </div>
+          <time id="agentTime">3:07 AM</time>
+        </div>
+        <div class="preview-body" id="agentChat"></div>
+      </div>
+      <ul class="agent-list" id="agentList"></ul>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" id="stepsEyebrow"></p>
+        <h2 id="stepsTitle"></h2>
+        <p id="stepsLede"></p>
+      </div>
+      <div class="steps" id="stepsGrid"></div>
+      <div class="compat" id="compatRow"></div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" id="contactEyebrow"></p>
+        <h2 id="contactTitle"></h2>
+        <p id="contactLede"></p>
+      </div>
+      <div class="contact-card">
+        <form id="contactForm" class="contact-form" method="POST">
+          <div class="contact-grid">
+            <div class="field">
+              <label for="name" id="nameLabel"></label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email" id="emailLabel"></label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message" id="messageLabel"></label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <div class="contact-actions">
+            <button class="btn btn-primary" type="submit" id="contactSubmit"></button>
+          </div>
+        </form>
+        <p class="contact-note" id="contactNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-final">
+        <h2 id="ctaTitle"></h2>
+        <p id="ctaLede"></p>
+        <div class="row">
+          <a class="btn btn-primary" href="#" id="ctaButton" target="_blank" rel="noopener"></a>
+          <a class="link-arrow" href="#tipos" id="ctaGhost"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <div class="brand">
+        <img class="logo-mark" src="https://app.quantiqai.io/objects/quick-uploads/258/deac7d77bf84e840.png" alt="" width="36" height="36">
+        <span>Quantiq Wallet<small>by Quantiq AI</small></span>
+      </div>
+      <p id="footTag"></p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h4 id="footCol1Title"></h4>
+        <div id="footCol1Links"></div>
+      </div>
+      <div class="foot-col">
+        <h4 id="footCol2Title"></h4>
+        <div id="footCol2Links"></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span id="footCopy"></span>
+    <span id="footNote"></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var CALENDLY = "https://calendar.quantiqai.io/claudia/discovery-call?date=2026-09-21&month=2026-09";
+
+  var i18n = {
+    en: {
+      navLinks: [["#tipos","Pass types"],["#agente","AI Agent"],["#proceso","How it works"]],
+      navCta: "Book a demo",
+      heroEyebrow: "WALLET PASSES + AI AGENT",
+      heroTitleHtml: "Your brand, in their pocket.<span class=\"line2\"><em class=\"grad-text\">Powered by an AI agent.</em></span>",
+      heroLede: "Quantiq Wallet turns any loyalty, membership or event program into an <b>Apple Wallet</b> or <b>Google Wallet</b> pass, connected to an AI Agent that chats, scans receipts and keeps customers coming back.",
+      chips: ["Membership","Points","Punch card","Coupon","Event ticket","Prepaid balance","Business card","Loyalty"],
+      heroCtaPrimary: "Book a demo",
+      ctaNote: "Reply within 24h · No commitment",
+      heroCtaGhost: "See the 8 pass types →",
+      prevName: "Quantiq Wallet", prevOnline: "online",
+      previewFootHtml: "Your <b>AI Agent</b> never clocks out.",
+      stats: [["7+","different types of wallet passes"],["0","apps your customer installs"],["2","wallets supported: Apple & Google"],["24/7","AI Agent working for your brand"]],
+      typesEyebrow: "LIVE PREVIEW",
+      typesTitleHtml: "This is how <em class=\"grad-text\">your pass</em> replies",
+      typesLede: "Eight ways Quantiq Wallet already works for businesses like yours.",
+      types: [
+        ["01","MEMBERSHIP","🎟️","3,102 active members",[["cli","How do I join the Quantiq Club?"],["age","Just your name and email, and I'll send your pass right now 👛"]]],
+        ["02","POINTS","⭐","1,240 pts balance",[["cli","Just uploaded my $24 receipt"],["age","Done! +24 points. You're at 1,240 🎉"]]],
+        ["03","PUNCH CARD","🔁","9 / 10 punches",[["cli","How many punches until my reward?"],["age","One more! Your next coffee is free ☕"]]],
+        ["04","COUPON","🏷️","Expires tonight",[["cli","Is the 20% off coupon still valid?"],["age","Yes, it expires at 11:59pm. Tap to redeem"]]],
+        ["05","EVENT TICKET","🎫","Row 12 · Seat 8",[["cli","Where's my ticket for tonight's show?"],["age","Right here, just show the QR at the door 🎫"]]],
+        ["06","PREPAID BALANCE","💳","$34.50 available",[["cli","How much balance do I have left?"],["age","You've got $34.50 remaining"]]],
+        ["07","BUSINESS CARD","🪪","212 contacts saved",[["cli","Saved to my contacts ✅"],["age","That easy, you've got my details now"]]],
+        ["08","LOYALTY","🤝","Gold tier unlocked",[["cli","Did I hit Gold tier yet?"],["age","You did! 2x points starting today 🥇"]]]
+      ],
+      agentEyebrow: "BUILT-IN AI AGENT",
+      agentTitleHtml: "An agent that chats, records<br>and rewards, <em class=\"grad-text\">on its own</em>.",
+      agentLede: "Every wallet program connects to an AI Agent: it answers questions, awards points from a scanned receipt, and fires automations the moment something happens on the pass.",
+      agentPrevName: "Agente Quantiq", agentOnline: "online",
+      agentChat: [["cli","Hey! I came from the Instagram promo, how do I join?"],["age","On it 🙌 Just your name and email and I'll send your pass right away."],["pass","Pass added to Apple Wallet: Quantiq Club"],["cli","Just uploaded my receipt, how many points did I get?"],["age","Added 18 points for your $18.40 purchase. You're at 1,240 🎉"]],
+      agentList: [
+        "AI receipt scanning: snap a photo, points or a punch land in seconds.",
+        "The moment something happens on a pass, like a new stamp, an unlocked reward, or a used coupon, we can automatically send an email or a text, or add a row to your spreadsheet.",
+        "Lock-screen notifications: announce a promo or nudge someone one step from their reward.",
+        "Unified contact: everyone who joins becomes a contact in your conversational CRM."
+      ],
+      contactEyebrow: "GET IN TOUCH",
+      contactTitleHtml: "Let's talk about your <em class=\"grad-text\">wallet program</em>.",
+      contactLede: "Send us a note and we'll get back to you with the best next step for your brand.",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      emailLabel: "Email",
+      emailPlaceholder: "you@company.com",
+      messageLabel: "Message / Question",
+      messagePlaceholder: "Tell us a little about your program, timeline, or question.",
+      contactSubmit: "Send message",
+      contactNote: "We usually reply within 24 hours.",
+      stepsEyebrow: "PROCESS",
+      stepsTitleHtml: "From zero to lock-screen <em class=\"grad-text\">in 4 steps</em>",
+      stepsLede: "No long onboarding. No complicated tech. Just results.",
+      steps: [
+        ["Create your program","Pick the pass type: membership, points, punch card, ticket. Then design it with your brand."],
+        ["They join and save it","Customers join via a link or QR and add the pass to Apple Wallet or Google Wallet in one tap."],
+        ["The AI Agent takes over","It answers questions, scans receipts, adds points and punches, and fires automations on every event."],
+        ["You own the lock-screen","Send silent updates, announcements and rewards straight to the lock screen. No apps to install."]
+      ],
+      compat: ["Apple Wallet","Google Wallet","No apps to install","Real-time updates"],
+      ctaTitleHtml: "Let's put your brand <em class=\"grad-text\">in their pocket</em>.",
+      ctaLede: "Book a 20-minute demo and we'll build your first wallet pass live: your logo, your colors, your AI Agent connected.",
+      ctaButton: "Book my demo",
+      ctaGhost: "See pass types",
+      footTag: "Wallet passes + AI Agent for businesses that want to live in their customers' pocket.",
+      footCol1Title: "Product",
+      footCol1Links: [["#tipos","Pass types"],["#agente","AI Agent"],["#proceso","How it works"]],
+      footCol2Title: "Company",
+      footCol2Links: [[CALENDLY,"Book a demo"],["#","Quantiq AI"]],
+      footCopy: "© " + new Date().getFullYear() + " Quantiq Wallet, by Quantiq AI.",
+      footNote: "Apple Wallet and Google Wallet are trademarks of their respective owners."
+    },
+    es: {
+      navLinks: [["#tipos","Tipos de pases"],["#agente","AI Agent"],["#proceso","Cómo funciona"]],
+      navCta: "Agendar demo",
+      heroEyebrow: "WALLET PASSES + AI AGENT",
+      heroTitleHtml: "Tu marca, en su bolsillo.<span class=\"line2\"><em class=\"grad-text\">Impulsada por un AI Agent.</em></span>",
+      heroLede: "Quantiq Wallet convierte cualquier programa de lealtad, membresía o evento en un pase de <b>Apple Wallet</b> o <b>Google Wallet</b>, conectado a un AI Agent que conversa, escanea recibos y fideliza.",
+      chips: ["Membresía","Puntos","Sellos","Cupón","Boleto de evento","Saldo prepagado","Tarjeta de presentación","Lealtad"],
+      heroCtaPrimary: "Agendar una demo",
+      ctaNote: "Respuesta en menos de 24h · Sin compromiso",
+      heroCtaGhost: "Ver los 8 tipos de pase →",
+      prevName: "Quantiq Wallet", prevOnline: "en línea",
+      previewFootHtml: "Tu <b>AI Agent</b> nunca cierra turno.",
+      stats: [["7+","tipos diferentes de wallet pass"],["0","apps que tu cliente instala"],["2","wallets soportados: Apple y Google"],["24/7","AI Agent trabajando por tu marca"]],
+      typesEyebrow: "VISTA PREVIA",
+      typesTitleHtml: "Así responde <em class=\"grad-text\">tu pase</em>",
+      typesLede: "Ocho formas en las que Quantiq Wallet ya funciona para negocios como el tuyo.",
+      types: [
+        ["01","MEMBRESÍA","🎟️","3,102 miembros activos",[["cli","¿Cómo me uno al Club Quantiq?"],["age","Solo tu nombre y correo, y te mando el pase ahora mismo 👛"]]],
+        ["02","PUNTOS","⭐","1,240 pts acumulados",[["cli","Ya subí mi recibo de $24"],["age","¡Listo! +24 puntos. Vas por 1,240 🎉"]]],
+        ["03","SELLOS","🔁","9 / 10 sellos",[["cli","¿Cuántos sellos me faltan?"],["age","¡Uno más! Tu próximo café es gratis ☕"]]],
+        ["04","CUPÓN","🏷️","Vence hoy",[["cli","¿Aún vale el cupón de 20%?"],["age","Sí, vence a las 11:59pm. Tócalo para canjear"]]],
+        ["05","BOLETO DE EVENTO","🎫","Fila 12 · Asiento 8",[["cli","¿Dónde está mi boleto para hoy?"],["age","Aquí tienes, solo muestra el QR en la entrada 🎫"]]],
+        ["06","SALDO PREPAGADO","💳","$34.50 disponibles",[["cli","¿Cuánto saldo me queda?"],["age","Te quedan $34.50 disponibles"]]],
+        ["07","TARJETA DE PRESENTACIÓN","🪪","212 contactos guardados",[["cli","Guardado en mis contactos ✅"],["age","¡Así de fácil! Ya tienes mis datos"]]],
+        ["08","LEALTAD","🤝","Nivel Gold desbloqueado",[["cli","¿Ya llegué al nivel Gold?"],["age","¡Sí! Puntos x2 desde hoy 🥇"]]]
+      ],
+      agentEyebrow: "AI AGENT INTEGRADO",
+      agentTitleHtml: "Un agente que conversa, registra<br>y premia, <em class=\"grad-text\">solo</em>.",
+      agentLede: "Cada wallet program se conecta a un AI Agent: responde preguntas, sube puntos al escanear un recibo y dispara automatizaciones cuando algo importante pasa en el pase.",
+      agentPrevName: "Agente Quantiq", agentOnline: "en línea",
+      agentChat: [["cli","¡Hola! Vengo de la promo de Instagram, ¿cómo me uno?"],["age","Claro 🙌 Solo tu nombre y correo y te mando tu pase al instante."],["pass","Pase añadido a Apple Wallet: Club Quantiq"],["cli","Ya subí mi recibo, ¿cuántos puntos gané?"],["age","¡Sumé 18 puntos por tu compra de $18.40! Vas por 1,240 🎉"]],
+      agentList: [
+        "Escaneo de recibos con IA: una foto y los puntos o sellos se asignan en segundos.",
+        "En cuanto pasa algo en un pase, como un sello nuevo, una recompensa lista o un cupón usado, se puede mandar un correo o un mensaje, o agregar una fila a tu hoja de cálculo automáticamente.",
+        "Notificaciones al lock-screen: anuncia promociones o avisa a quien está a un paso de su recompensa.",
+        "Contacto unificado: quien se une queda como contacto en tu CRM conversacional."
+      ],
+      contactEyebrow: "CONTÁCTANOS",
+      contactTitleHtml: "Hablemos de tu <em class=\"grad-text\">programa wallet</em>.",
+      contactLede: "Envíanos un mensaje y te responderemos con el mejor siguiente paso para tu marca.",
+      nameLabel: "Nombre",
+      namePlaceholder: "Tu nombre",
+      emailLabel: "Correo",
+      emailPlaceholder: "tu@empresa.com",
+      messageLabel: "Mensaje / Pregunta",
+      messagePlaceholder: "Cuéntanos un poco sobre tu programa, tu fecha objetivo o tu pregunta.",
+      contactSubmit: "Enviar mensaje",
+      contactNote: "Normalmente respondemos en menos de 24 horas.",
+      stepsEyebrow: "PROCESO",
+      stepsTitleHtml: "De cero a lock-screen <em class=\"grad-text\">en 4 pasos</em>",
+      stepsLede: "Sin onboarding largo. Sin tecnología complicada. Solo resultados.",
+      steps: [
+        ["Crea tu programa","Elige el tipo de pase: membresía, puntos, sellos, boleto. Luego diséñalo con tu marca."],
+        ["Se unen y lo guardan","Tus clientes se unen con un link o QR y agregan el pase a Apple Wallet o Google Wallet en un tap."],
+        ["El AI Agent entra en acción","Responde dudas, escanea recibos, suma puntos y sellos, y dispara automatizaciones en cada evento."],
+        ["Impactas el lock-screen","Envía actualizaciones, anuncios y recompensas directo a la pantalla de bloqueo. Sin apps que instalar."]
+      ],
+      compat: ["Apple Wallet","Google Wallet","Sin apps que instalar","Actualizaciones en tiempo real"],
+      ctaTitleHtml: "Pongamos tu marca <em class=\"grad-text\">en su bolsillo</em>.",
+      ctaLede: "Agenda una demo de 20 minutos y construimos tu primer wallet pass en vivo: tu logo, tus colores, tu AI Agent conectado.",
+      ctaButton: "Agendar mi demo",
+      ctaGhost: "Ver tipos de pase",
+      footTag: "Wallet passes + AI Agent para negocios que quieren vivir en el bolsillo de sus clientes.",
+      footCol1Title: "Producto",
+      footCol1Links: [["#tipos","Tipos de pases"],["#agente","AI Agent"],["#proceso","Cómo funciona"]],
+      footCol2Title: "Compañía",
+      footCol2Links: [[CALENDLY,"Agendar demo"],["#","Quantiq AI"]],
+      footCopy: "© " + new Date().getFullYear() + " Quantiq Wallet, by Quantiq AI.",
+      footNote: "Apple Wallet y Google Wallet son marcas de sus respectivos dueños."
+    }
+  };
+
+  function el(tag, cls, html){ var e=document.createElement(tag); if(cls) e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+  var reduceMotion = false;
+  try{ reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+
+  function renderChat(container, arr){
+    container.innerHTML='';
+    var items = [];
+    arr.forEach(function(m){
+      var node = (m[0]==='pass') ? el('div','status-pill', m[1]) : el('div','tbubble ' + m[0], m[1]);
+      container.appendChild(node);
+      items.push({ kind:m[0], node:node });
+    });
+    if(reduceMotion){
+      items.forEach(function(it){ it.node.classList.add('show'); });
+      return;
+    }
+    container.classList.add('chat-stream');
+    container._chatItems = items;
+    container._revealed = false;
+  }
+
+  function playReveal(container){
+    if(container._revealed) return;
+    container._revealed = true;
+    var items = container._chatItems || [];
+    var delay = 150;
+    items.forEach(function(item){
+      if(item.kind === 'age'){
+        var typingEl = el('div','typing show','<i></i><i></i><i></i>');
+        (function(typingEl, atDelay){ setTimeout(function(){ container.insertBefore(typingEl, item.node); }, atDelay); })(typingEl, delay);
+        delay += 550;
+        (function(typingEl, node, atDelay){ setTimeout(function(){ typingEl.remove(); node.classList.add('show'); }, atDelay); })(typingEl, item.node, delay);
+        delay += 220;
+      } else {
+        (function(node, atDelay){ setTimeout(function(){ node.classList.add('show'); }, atDelay); })(item.node, delay);
+        delay += 320;
+      }
+    });
+  }
+
+  var chatObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ playReveal(entry.target); chatObserver.unobserve(entry.target); }
+    });
+  }, {threshold:0.3});
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('on'); revealObserver.unobserve(entry.target); }
+    });
+  }, {threshold:0.12});
+
+  function wireMotion(){
+    document.querySelectorAll('.chat-stream').forEach(function(c){ chatObserver.observe(c); });
+    document.querySelectorAll('.reveal').forEach(function(el){
+      if(reduceMotion){ el.classList.add('on'); } else { revealObserver.observe(el); }
+    });
+  }
+
+  function render(lang){
+    var t = i18n[lang];
+    document.documentElement.lang = lang;
+
+    var navLinks = document.getElementById('navLinks'); navLinks.innerHTML='';
+    t.navLinks.forEach(function(l){ var a=el('a'); a.href=l[0]; a.textContent=l[1]; navLinks.appendChild(a); });
+    var navCta = document.getElementById('navCta'); navCta.textContent=t.navCta; navCta.href=CALENDLY;
+
+    document.getElementById('heroEyebrow').textContent = t.heroEyebrow;
+    document.getElementById('heroTitle').innerHTML = t.heroTitleHtml;
+    document.getElementById('heroLede').innerHTML = t.heroLede;
+    var chips = document.getElementById('chipRow'); chips.innerHTML='';
+    t.chips.forEach(function(c){ chips.appendChild(el('span','chip', c)); });
+    var hp = document.getElementById('heroCtaPrimary'); hp.textContent=t.heroCtaPrimary; hp.href=CALENDLY;
+    document.getElementById('ctaNote').textContent = t.ctaNote;
+    document.getElementById('heroCtaGhost').textContent = t.heroCtaGhost;
+
+    document.getElementById('prevName').textContent = t.prevName;
+    document.getElementById('prevOnline').textContent = t.prevOnline;
+    document.getElementById('previewFoot').innerHTML = t.previewFootHtml;
+
+    var sg = document.getElementById('statGrid'); sg.innerHTML='';
+    t.stats.forEach(function(s, i){
+      var c = el('div','stat-card reveal');
+      c.style.transitionDelay = (i*0.08) + 's';
+      c.appendChild(el('b', null, s[0]));
+      c.appendChild(el('span', null, s[1]));
+      sg.appendChild(c);
+    });
+
+    document.getElementById('typesEyebrow').textContent = t.typesEyebrow;
+    document.getElementById('typesTitle').innerHTML = t.typesTitleHtml;
+    document.getElementById('typesLede').textContent = t.typesLede;
+    var tc = document.getElementById('typeCarousel'); tc.innerHTML='';
+    t.types.forEach(function(p, i){
+      var card = el('div','type-card reveal');
+      card.style.transitionDelay = (i*0.06) + 's';
+      card.appendChild(el('span','num', p[0] + ' · ' + p[1]));
+      var who = el('div','who');
+      who.appendChild(el('div','type-icon', p[2]));
+      who.appendChild(el('h3', null, p[1]));
+      card.appendChild(who);
+      var chat = el('div','type-chat');
+      renderChat(chat, p[4]);
+      card.appendChild(chat);
+      card.appendChild(el('span','status-pill', p[3]));
+      tc.appendChild(card);
+    });
+
+    document.getElementById('agentEyebrow').textContent = t.agentEyebrow;
+    document.getElementById('agentTitle').innerHTML = t.agentTitleHtml;
+    document.getElementById('agentLede').textContent = t.agentLede;
+    document.getElementById('agentPrevName').textContent = t.agentPrevName;
+    document.getElementById('agentOnline').textContent = t.agentOnline;
+    renderChat(document.getElementById('agentChat'), t.agentChat);
+    var al = document.getElementById('agentList'); al.innerHTML='';
+    t.agentList.forEach(function(txt, i){
+      var li = el('li','reveal');
+      li.style.transitionDelay = (i*0.08) + 's';
+      li.appendChild(el('span','check','✓'));
+      li.appendChild(el('span', null, txt));
+      al.appendChild(li);
+    });
+
+    document.getElementById('stepsEyebrow').textContent = t.stepsEyebrow;
+    document.getElementById('stepsTitle').innerHTML = t.stepsTitleHtml;
+    document.getElementById('stepsLede').textContent = t.stepsLede;
+    var sgd = document.getElementById('stepsGrid'); sgd.innerHTML='';
+    t.steps.forEach(function(s, i){
+      var st = el('div','step reveal');
+      st.style.transitionDelay = (i*0.08) + 's';
+      st.appendChild(el('span','num grad-text', String(i+1)));
+      st.appendChild(el('h3', null, s[0]));
+      st.appendChild(el('p', null, s[1]));
+      sgd.appendChild(st);
+    });
+    var cr = document.getElementById('compatRow'); cr.innerHTML='';
+    t.compat.forEach(function(c){ cr.appendChild(el('span', null, c)); });
+
+    document.getElementById('contactEyebrow').textContent = t.contactEyebrow;
+    document.getElementById('contactTitle').innerHTML = t.contactTitleHtml;
+    document.getElementById('contactLede').textContent = t.contactLede;
+    document.getElementById('nameLabel').textContent = t.nameLabel;
+    document.getElementById('emailLabel').textContent = t.emailLabel;
+    document.getElementById('messageLabel').textContent = t.messageLabel;
+    document.getElementById('name').setAttribute('placeholder', t.namePlaceholder);
+    document.getElementById('email').setAttribute('placeholder', t.emailPlaceholder);
+    document.getElementById('message').setAttribute('placeholder', t.messagePlaceholder);
+    document.getElementById('contactSubmit').textContent = t.contactSubmit;
+    document.getElementById('contactNote').textContent = t.contactNote;
+
+    document.getElementById('ctaTitle').innerHTML = t.ctaTitleHtml;
+    document.getElementById('ctaLede').textContent = t.ctaLede;
+    var cb = document.getElementById('ctaButton'); cb.textContent=t.ctaButton; cb.href=CALENDLY;
+    document.getElementById('ctaGhost').textContent = t.ctaGhost;
+
+    document.getElementById('footTag').textContent = t.footTag;
+    document.getElementById('footCol1Title').textContent = t.footCol1Title;
+    var fc1 = document.getElementById('footCol1Links'); fc1.innerHTML='';
+    t.footCol1Links.forEach(function(l){ var a=el('a'); a.href=l[0]; a.textContent=l[1]; fc1.appendChild(a); });
+    document.getElementById('footCol2Title').textContent = t.footCol2Title;
+    var fc2 = document.getElementById('footCol2Links'); fc2.innerHTML='';
+    t.footCol2Links.forEach(function(l){ var a=el('a'); a.href=l[0]; a.textContent=l[1]; if(l[0]===CALENDLY){a.target='_blank';a.rel='noopener';} fc2.appendChild(a); });
+    document.getElementById('footCopy').textContent = t.footCopy;
+    document.getElementById('footNote').textContent = t.footNote;
+
+    try{ localStorage.setItem('ccw-lang', lang); }catch(e){}
+    document.getElementById('btnEs').setAttribute('aria-pressed', String(lang==='es'));
+    document.getElementById('btnEn').setAttribute('aria-pressed', String(lang==='en'));
+
+    wireMotion();
+  }
+
+  var initialLang = 'en';
+  try{ var saved = localStorage.getItem('ccw-lang'); if(saved==='es'||saved==='en') initialLang = saved; }catch(e){}
+
+  document.getElementById('btnEs').addEventListener('click', function(){ render('es'); });
+  document.getElementById('btnEn').addEventListener('click', function(){ render('en'); });
+
+  render(initialLang);
+})();
+</script>
+<script src="https://app.quantiqai.io/widget.js" data-widget="18910231" async></script>
+
+</body>
+</html>
