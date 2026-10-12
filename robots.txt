@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ClauGithu.github.io/quantiq-wallet/sitemap.xml
+Sitemap: https://quantiqwallet.com/sitemap.xml
